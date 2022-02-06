@@ -240,9 +240,9 @@ contract MicinSimple is Context, IERC20, Ownable {
     _digits = 6;
     _decimals = 9;
     _totalSupply = 5 * (10 ** _digits) * (10 ** _decimals);
-    _balances[msg.sender] = _totalSupply;
+    _balances[_msgSender()] = _totalSupply;
 
-    emit Transfer(address(0), msg.sender, _totalSupply);
+    emit Transfer(address(0), _msgSender(), _totalSupply);
   }
 
   function decimals() public view returns (uint8) {
